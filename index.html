@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Data Science Digital Library dashboard" />
+  <title>DATA SCIENCE DIGITAL LIBRARY</title>
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+      <button class="hamburger" id="hamburger" aria-label="Toggle sidebar navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <div class="student-summary">
+        <img id="sidebarProfileImage" class="avatar" alt="Student profile placeholder" />
+        <div class="sidebar-label">
+          <h2>M. Jhansi</h2>
+          <p>24102A030152</p>
+          <p>Data Science</p>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-section="home">
+          <i class="fa-solid fa-house"></i><span>Home</span>
+        </button>
+        <button class="nav-item" data-section="modules">
+          <i class="fa-solid fa-book-open"></i><span>Modules</span>
+        </button>
+        <button class="nav-item" data-section="labs">
+          <i class="fa-solid fa-flask"></i><span>Lab Experiments</span>
+        </button>
+        <button class="nav-item" data-section="projects">
+          <i class="fa-solid fa-diagram-project"></i><span>Projects</span>
+        </button>
+        <button class="nav-item" data-section="assignments">
+          <i class="fa-solid fa-clipboard-check"></i><span>Assignments</span>
+        </button>
+        <button class="nav-item" data-section="tools">
+          <i class="fa-solid fa-screwdriver-wrench"></i><span>Tools</span>
+        </button>
+        <button class="nav-item" data-section="resources">
+          <i class="fa-solid fa-folder-tree"></i><span>Resources</span>
+        </button>
+        <button class="nav-item" data-section="profile">
+          <i class="fa-solid fa-user"></i><span>Profile</span>
+        </button>
+      </nav>
+    </div>
+
+  </aside>
+
+  <main class="main-content">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Academic Dashboard</p>
+        <h1 id="pageTitle">DATA SCIENCE DIGITAL LIBRARY</h1>
+      </div>
+      <div class="topbar-actions">
+        <img class="topbar-logo" src="library-logo.jpg" alt="Data Science Digital Library logo" />
+      </div>
+    </header>
+
+    <!-- HOME -->
+    <section class="page-section active" id="home">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="hero-message">
+            Explore <span class="hero-highlight">new ideas</span>, test them in the
+            <span class="hero-highlight">lab</span>, and shape what you discover into
+            <span class="hero-highlight">projects worth sharing</span>. Your next
+            <span class="hero-highlight">data story</span> starts here.
+          </p>
+          <button class="btn btn-primary go-section" data-target="modules">
+            Find Your First Insight <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+        <img
+          class="hero-illustration"
+          src="home-hero-illustration.png"
+          alt="Digital library learning illustration"
+        />
+      </div>
+
+      <div class="stats-grid">
+        <article class="stat-card">
+          <i class="fa-solid fa-book-open"></i>
+          <div><span id="moduleCount">0</span><p>Modules</p></div>
+        </article>
+        <article class="stat-card">
+          <i class="fa-solid fa-flask"></i>
+          <div><span id="labCount">0</span><p>Lab Experiments</p></div>
+        </article>
+        <article class="stat-card">
+          <i class="fa-solid fa-diagram-project"></i>
+          <div><span id="projectCount">1</span><p>Projects</p></div>
+        </article>
+        <article class="stat-card">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <div><span id="assignmentCount">0</span><p>Assignments</p></div>
+        </article>
+      </div>
+
+      <div class="dashboard-grid">
+        <article class="dashboard-card">
+          <i class="fa-solid fa-book-open"></i>
+          <h3>Modules</h3>
+          <p>Browse organized learning materials, notes, presentations, and documents.</p>
+          <button class="btn btn-outline go-section" data-target="modules">Open Section</button>
+        </article>
+        <article class="dashboard-card">
+          <i class="fa-solid fa-flask"></i>
+          <h3>Lab Experiments</h3>
+          <p>Create experiments, write code, store outputs, and document results.</p>
+          <button class="btn btn-outline go-section" data-target="labs">Open Section</button>
+        </article>
+        <article class="dashboard-card">
+          <i class="fa-solid fa-diagram-project"></i>
+          <h3>Projects</h3>
+          <p>Track Data Science projects, repositories, datasets, and reports.</p>
+          <button class="btn btn-outline go-section" data-target="projects">Open Section</button>
+        </article>
+        <article class="dashboard-card">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <h3>Assignments</h3>
+          <p>Manage assignment details, due dates, files, and submission status.</p>
+          <button class="btn btn-outline go-section" data-target="assignments">Open Section</button>
+        </article>
+        <article class="dashboard-card">
+          <i class="fa-solid fa-screwdriver-wrench"></i>
+          <h3>Tools</h3>
+          <p>Access useful programming, visualization, machine learning, and data tools.</p>
+          <button class="btn btn-outline go-section" data-target="tools">Open Section</button>
+        </article>
+        <article class="dashboard-card">
+          <i class="fa-solid fa-folder-tree"></i>
+          <h3>Resources</h3>
+          <p>Browse documentation, datasets, courses, videos, and open-source resources.</p>
+          <button class="btn btn-outline go-section" data-target="resources">Open Section</button>
+        </article>
+      </div>
+
+      <section class="identity-documents section-card">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Identity Documents</p>
+            <h2>Profile and ID Card</h2>
+          </div>
+        </div>
+
+        <div class="identity-grid">
+          <div class="identity-box">
+            <img id="homeProfilePreview" class="large-profile" alt="Profile preview" />
+          </div>
+
+          <div class="identity-box">
+            <i class="fa-regular fa-id-card id-icon"></i>
+            <p id="homeIdStatus">No ID card on file.</p>
+            <div class="action-row">
+              <button class="icon-btn" id="homeViewId" title="View ID Card"><i class="fa-solid fa-eye"></i></button>
+              <button class="icon-btn" id="homeDownloadId" title="Download ID Card"><i class="fa-solid fa-download"></i></button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+
+    <!-- MODULES -->
+    <section class="page-section" id="modules">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Learning Materials</p>
+          <h2>Modules</h2>
+          <p>Choose a lesson to read facing pages in the book-style viewer. Click the left or right page to turn the spread.</p>
+        </div>
+      </div>
+
+      <div class="two-column-layout">
+        <aside class="content-panel">
+          <h3><i class="fa-solid fa-list"></i> Module Contents</h3>
+          <div id="moduleList" class="file-list"></div>
+        </aside>
+
+        <div class="workspace-panel">
+          <div class="viewer-toolbar">
+            <button class="btn btn-outline hidden" id="moduleResourceBack"><i class="fa-solid fa-arrow-left"></i> All Module 1 resources</button>
+            <button class="icon-btn viewer-control" data-viewer-action="zoomIn" title="Zoom in"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+            <button class="icon-btn viewer-control" data-viewer-action="zoomOut" title="Zoom out"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+            <button class="icon-btn viewer-control" data-viewer-action="rotateLeft" title="Rotate left"><i class="fa-solid fa-rotate-left"></i></button>
+            <button class="icon-btn viewer-control" data-viewer-action="rotateRight" title="Rotate right"><i class="fa-solid fa-rotate-right"></i></button>
+            <button class="icon-btn viewer-control" data-viewer-action="flip" title="Flip page horizontally"><i class="fa-solid fa-left-right"></i></button>
+            <button class="icon-btn viewer-control" data-viewer-action="reset" title="Reset view"><i class="fa-solid fa-arrow-rotate-left"></i></button>
+            <button class="icon-btn viewer-control" data-viewer-action="fullscreen" title="Full screen"><i class="fa-solid fa-expand"></i></button>
+          </div>
+
+          <div id="modulePreview" class="document-preview">
+            <div class="empty-preview">
+              <i class="fa-regular fa-file-lines"></i>
+              <p>Select a module, then open a resource to read it here.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LABS -->
+    <section class="page-section" id="labs">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Practical Workspace</p>
+          <h2>Lab Experiments</h2>
+          <p>Write and run code, check its output, and open the experiment repository on GitHub.</p>
+        </div>
+      </div>
+
+      <div class="two-column-layout labs-layout">
+        <aside class="content-panel">
+          <h3><i class="fa-solid fa-flask"></i> Experiment Contents</h3>
+          <div id="labList" class="file-list"></div>
+        </aside>
+
+        <div class="workspace-panel">
+          <input type="hidden" id="labEditId" />
+          <a
+            class="external-link-box"
+            href="https://github.com/jhansijanu564-lgtm/Data-Science-Project.git"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <i class="fa-brands fa-github" aria-hidden="true"></i>
+            <span>
+              <strong>View Experiment in GitHub</strong>
+              <small>Open the Data Science Project repository</small>
+            </span>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+
+          <section class="code-workspace">
+            <div class="code-header">
+              <h3><i class="fa-solid fa-code"></i> Coding Workspace</h3>
+              <select id="languageSelect" aria-label="Choose programming language">
+                <option value="Python">Python</option>
+                <option value="Java">Java</option>
+                <option value="C">C</option>
+                <option value="C++">C++</option>
+                <option value="R">R</option>
+              </select>
+            </div>
+
+            <div class="code-editor-wrap">
+              <pre id="lineNumbers">1</pre>
+              <textarea id="labCode" spellcheck="false" placeholder="# Write your code here"></textarea>
+            </div>
+
+            <div class="code-actions">
+              <button type="button" class="btn btn-primary" id="runCode"><i class="fa-solid fa-play"></i> Run Code</button>
+              <button type="button" class="btn btn-outline" id="clearCode"><i class="fa-solid fa-broom"></i> Clear</button>
+              <button type="button" class="btn btn-outline" id="copyCode"><i class="fa-solid fa-copy"></i> Copy Code</button>
+              <button type="button" class="btn btn-outline" id="downloadCode"><i class="fa-solid fa-download"></i> Download Code</button>
+            </div>
+
+            <p class="compiler-note">
+              Run Code writes supported Python demo output to Original Output and fills Sample Output if it is blank. Java, C, C++, and R need a backend compiler and are not executed in this browser demo.
+            </p>
+
+            <div class="output-grid">
+              <div>
+                <label for="labSampleOutput">Sample Output</label>
+                <textarea id="labSampleOutput" placeholder="Expected output"></textarea>
+              </div>
+              <div>
+                <label for="labOriginalOutput">Original Output</label>
+                <textarea id="labOriginalOutput" placeholder="Actual output"></textarea>
+              </div>
+              <div class="full-width">
+                <label for="executionConsole">Execution Console</label>
+                <pre id="executionConsole" class="console">Ready to run code.</pre>
+              </div>
+              <div class="full-width">
+                <label for="labResult">Result</label>
+                <textarea id="labResult" placeholder="State the experiment result"></textarea>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" id="saveLab">
+              <i class="fa-solid fa-floppy-disk"></i> Save Experiment
+            </button>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="page-section" id="projects">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Portfolio Workspace</p>
+          <h2>Projects</h2>
+          <p>Explore the SmartDoc Analyzer project and its live website.</p>
+        </div>
+      </div>
+
+      <div class="project-links">
+        <a
+          class="external-link-box"
+          href="https://github.com/jhansijanu564-lgtm/SmartDoc-Analyzer.git"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-github" aria-hidden="true"></i>
+          <span>
+            <strong>View Project in GitHub</strong>
+            <small>Open the SmartDoc Analyzer repository</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <a
+          class="external-link-box"
+          href="https://smartdoc-analyzer-raxbnraxctjtvfcnhrsodi.streamlit.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-solid fa-globe" aria-hidden="true"></i>
+          <span>
+            <strong>View Live Website</strong>
+            <small>Open the SmartDoc Analyzer web app</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- ASSIGNMENTS -->
+    <section class="page-section" id="assignments">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Course Materials</p>
+          <h2>Assignments</h2>
+          <p>Open the assignment PDFs for each module.</p>
+        </div>
+      </div>
+
+      <div class="assignment-module-boxes">
+        <a class="external-link-box" href="resources/assignments/module-1.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          <span>
+            <strong>Module 1</strong>
+            <small>Open assignment PDF</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <a class="external-link-box" href="resources/assignments/module-2.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          <span>
+            <strong>Module 2</strong>
+            <small>Open assignment PDF</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+        <a class="external-link-box" href="resources/assignments/module-3.pdf" target="_blank" rel="noopener noreferrer">
+          <i class="fa-solid fa-file-pdf" aria-hidden="true"></i>
+          <span>
+            <strong>Module 3</strong>
+            <small>Open assignment PDF</small>
+          </span>
+          <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section class="page-section" id="tools">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Developer Toolkit</p>
+          <h2>Data Science Tools</h2>
+          <p>Open trusted tools and official documentation in a new tab.</p>
+        </div>
+      </div>
+
+      <div class="filter-bar">
+        <input id="toolSearch" type="search" placeholder="Search tools..." aria-label="Search tools" />
+        <select id="toolCategoryFilter" aria-label="Filter tools by category">
+          <option value="All">All Categories</option>
+          <option value="Language">Language</option>
+          <option value="Notebook">Notebook</option>
+          <option value="Development">Development</option>
+          <option value="Machine Learning">Machine Learning</option>
+          <option value="Data Analysis">Data Analysis</option>
+          <option value="Visualization">Visualization</option>
+          <option value="Big Data">Big Data</option>
+        </select>
+      </div>
+
+      <div id="toolList" class="content-card-grid"></div>
+    </section>
+
+    <!-- RESOURCES -->
+    <section class="page-section" id="resources">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Learning Hub</p>
+          <h2>Resources</h2>
+          <p>Documentation, videos, datasets, courses, and open-source learning materials.</p>
+        </div>
+      </div>
+
+      <div class="filter-bar resource-filters">
+        <input id="resourceSearch" type="search" placeholder="Search resources..." aria-label="Search resources" />
+        <select id="resourceLanguageFilter" aria-label="Filter by language">
+          <option value="All">All Languages</option>
+          <option value="Python">Python</option>
+          <option value="Java">Java</option>
+          <option value="C">C</option>
+          <option value="C++">C++</option>
+          <option value="R">R</option>
+          <option value="PyTorch">PyTorch</option>
+          <option value="Machine Learning">Machine Learning</option>
+          <option value="Data Visualization">Data Visualization</option>
+          <option value="Datasets">Datasets</option>
+          <option value="Open Source Data Science">Open Source Data Science</option>
+        </select>
+        <select id="resourceTypeFilter" aria-label="Filter by resource type">
+          <option value="All">All Types</option>
+          <option value="Documentation">Documentation</option>
+          <option value="YouTube">YouTube</option>
+          <option value="Dataset">Dataset</option>
+          <option value="Open Source">Open Source</option>
+          <option value="Course">Course</option>
+        </select>
+      </div>
+
+      <div id="resourceList" class="content-card-grid"></div>
+    </section>
+
+    <!-- PROFILE -->
+    <section class="page-section" id="profile">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Student Account</p>
+          <h2>Professional Profile</h2>
+        </div>
+        <button class="btn btn-primary" id="editProfileBtn">
+          <i class="fa-solid fa-pen"></i> Edit Profile
+        </button>
+      </div>
+
+      <div class="profile-layout">
+        <article class="section-card profile-card">
+          <img id="profilePageImage" class="profile-page-image" alt="Student profile image" />
+          <h2 id="profileNameDisplay">M. Jhansi</h2>
+          <p id="profileDeptDisplay">Data Science</p>
+
+        </article>
+
+        <article class="section-card profile-details">
+          <div id="profileDisplayFields"></div>
+
+          <form id="profileEditForm" class="form-grid hidden">
+            <div>
+              <label for="editFullName">Full Name</label>
+              <input id="editFullName" />
+            </div>
+            <div>
+              <label for="editRegistration">Registration Number</label>
+              <input id="editRegistration" />
+            </div>
+            <div>
+              <label for="editDepartment">Department</label>
+              <input id="editDepartment" />
+            </div>
+            <div>
+              <label for="editSection">Section</label>
+              <input id="editSection" />
+            </div>
+            <div>
+              <label for="editSubject">Subject</label>
+              <input id="editSubject" />
+            </div>
+            <div>
+              <label for="editFaculty">Faculty Name</label>
+              <input id="editFaculty" />
+            </div>
+            <div>
+              <label for="editGithub">GitHub Profile</label>
+              <input id="editGithub" type="url" />
+            </div>
+            <div>
+              <label for="editLinkedin">LinkedIn Profile</label>
+              <input id="editLinkedin" type="url" />
+            </div>
+            <div class="full-width">
+              <label for="editEmail">Email Address</label>
+              <input id="editEmail" type="email" />
+            </div>
+            <div class="full-width">
+              <button class="btn btn-primary" type="submit">Save Profile Changes</button>
+            </div>
+          </form>
+        </article>
+      </div>
+
+      <div class="profile-document-grid">
+        <article class="section-card">
+          <h3><i class="fa-regular fa-id-card"></i> ID Card</h3>
+          <p id="profileIdStatus">No ID card on file.</p>
+          <div class="action-row">
+            <button class="btn btn-outline" id="profileViewId">View ID Card</button>
+            <button class="btn btn-outline" id="profileDownloadId">Download ID Card</button>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <footer>© 2026 M. Jhansi | Data Science Digital Library</footer>
+  </main>
+
+  <!-- MODAL -->
+  <div class="modal hidden" id="previewModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Document Preview</h2>
+        <button class="icon-btn" id="closeModal" aria-label="Close preview">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div id="modalBody" class="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- TOAST -->
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
