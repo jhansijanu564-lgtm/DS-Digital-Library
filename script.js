@@ -7,7 +7,6 @@
 
 const KEYS = {
   profile: "dsdl_profile",
-  profileImage: "dsdl_profile_image",
   idCard: "dsdl_id_card",
   modules: "dsdl_modules",
   labs: "dsdl_labs",
@@ -211,24 +210,10 @@ function escapeHTML(value = "") {
     .replaceAll("'", "&#039;");
 }
 
-function defaultAvatarDataUrl() {
-  const svg = `
-    <svg xmlns="http://www.w3.org/2000/svg" width="240" height="240">
-      <rect width="100%" height="100%" fill="#5E83AE"/>
-      <circle cx="120" cy="83" r="45" fill="#F5F5DC"/>
-      <path d="M40 220c10-52 46-76 80-76s70 24 80 76" fill="#3f5f83"/>
-      <text x="120" y="220" text-anchor="middle" fill="#F5F5DC" font-family="Arial" font-size="30">MJ</text>
-    </svg>
-  `;
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
-}
-
 function setPlaceholderImages() {
-  const savedImage = localStorage.getItem(KEYS.profileImage) || defaultAvatarDataUrl();
-
   ["sidebarProfileImage", "homeProfilePreview", "profilePageImage"].forEach((id) => {
     const image = document.getElementById(id);
-    if (image) image.src = savedImage;
+    if (image) image.src = "profile-photo.png";
   });
 }
 
