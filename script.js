@@ -361,25 +361,22 @@ function showSection(sectionId) {
 ------------------------------ */
 
 function bindHomeIdentity() {
-  ["homeViewId", "profileViewId"].forEach((id) => {
-    document.getElementById(id).addEventListener("click", () => {
-      previewStoredFile(getData(KEYS.idCard, null), "ID Card Preview");
-    });
+  document.getElementById("homeViewId").addEventListener("click", () => {
+    previewStoredFile(getData(KEYS.idCard, null), "ID Card Preview");
   });
 
-  ["homeDownloadId", "profileDownloadId"].forEach((id) => {
-    document.getElementById(id).addEventListener("click", () => {
-      downloadStoredFile(getData(KEYS.idCard, null));
-    });
+  document.getElementById("homeDownloadId").addEventListener("click", () => {
+    downloadStoredFile(getData(KEYS.idCard, null));
   });
-
 }
 
 function renderIdentityStatus() {
   const idCard = getData(KEYS.idCard, null);
-  const status = idCard ? `On file: ${idCard.name}` : "No ID card on file.";
+  const status = idCard ? `On file: ${idCard.name}` : "ID card photo displayed below.";
 
-  document.getElementById("homeIdStatus").textContent = status;
+  document.getElementById("homeIdStatus").textContent = idCard
+    ? status
+    : "ID card photo available in Profile.";
   document.getElementById("profileIdStatus").textContent = status;
 }
 
