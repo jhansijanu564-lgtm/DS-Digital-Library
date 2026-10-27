@@ -147,7 +147,6 @@ function initializeApp() {
   }
   setPlaceholderImages();
   bindSidebar();
-  bindHomeIdentity();
   bindModuleFeatures();
   bindLabFeatures();
   bindToolAndResourceFilters();
@@ -359,23 +358,10 @@ function showSection(sectionId) {
    Home Identity Features
 ------------------------------ */
 
-function bindHomeIdentity() {
-  document.getElementById("homeViewId").addEventListener("click", () => {
-    previewStoredFile(getData(KEYS.idCard, null), "ID Card Preview");
-  });
-
-  document.getElementById("homeDownloadId").addEventListener("click", () => {
-    downloadStoredFile(getData(KEYS.idCard, null));
-  });
-}
-
 function renderIdentityStatus() {
   const idCard = getData(KEYS.idCard, null);
   const status = idCard ? `On file: ${idCard.name}` : "ID card photo displayed below.";
 
-  document.getElementById("homeIdStatus").textContent = idCard
-    ? status
-    : "ID card photo available in Profile.";
   document.getElementById("profileIdStatus").textContent = status;
 }
 

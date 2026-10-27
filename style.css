@@ -453,6 +453,21 @@ a:focus-visible {
   border-radius: 50%;
 }
 
+.identity-label {
+  margin: 0;
+  font-weight: 700;
+}
+
+.home-id-card-image {
+  display: block;
+  width: 100%;
+  max-width: 260px;
+  max-height: 340px;
+  border: 1px solid var(--gray-200);
+  border-radius: 10px;
+  object-fit: contain;
+}
+
 .id-icon {
   color: var(--cyan-dark);
   font-size: 4rem;
