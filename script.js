@@ -151,7 +151,6 @@ function initializeApp() {
   bindModuleFeatures();
   bindLabFeatures();
   bindToolAndResourceFilters();
-  bindProfileFeatures();
   bindModal();
   renderAll();
 }
@@ -1268,45 +1267,6 @@ function renderResources() {
   });
 }
 
-/* -----------------------------
-   Profile
------------------------------- */
-
-function bindProfileFeatures() {
-  document.getElementById("editProfileBtn").addEventListener("click", () => {
-    const editForm = document.getElementById("profileEditForm");
-    const display = document.getElementById("profileDisplayFields");
-
-    editForm.classList.toggle("hidden");
-    display.classList.toggle("hidden");
-
-    if (!editForm.classList.contains("hidden")) loadProfileIntoForm();
-  });
-
-  document.getElementById("profileEditForm").addEventListener("submit", (event) => {
-    event.preventDefault();
-
-    const profile = {
-      fullName: document.getElementById("editFullName").value.trim(),
-      registration: document.getElementById("editRegistration").value.trim(),
-      department: document.getElementById("editDepartment").value.trim(),
-      section: document.getElementById("editSection").value.trim(),
-      subject: document.getElementById("editSubject").value.trim(),
-      faculty: document.getElementById("editFaculty").value.trim(),
-      github: document.getElementById("editGithub").value.trim(),
-      linkedin: document.getElementById("editLinkedin").value.trim(),
-      email: document.getElementById("editEmail").value.trim()
-    };
-
-    saveData(KEYS.profile, profile);
-    document.getElementById("profileEditForm").classList.add("hidden");
-    document.getElementById("profileDisplayFields").classList.remove("hidden");
-    renderProfile();
-    toast("Profile details saved successfully.");
-  });
-
-}
-
 function getProfile() {
   return { ...defaultProfile, ...getData(KEYS.profile, {}) };
 }
@@ -1339,20 +1299,6 @@ function renderProfile() {
       </div>
     </div>
   `;
-}
-
-function loadProfileIntoForm() {
-  const profile = getProfile();
-
-  document.getElementById("editFullName").value = profile.fullName;
-  document.getElementById("editRegistration").value = profile.registration;
-  document.getElementById("editDepartment").value = profile.department;
-  document.getElementById("editSection").value = profile.section;
-  document.getElementById("editSubject").value = profile.subject;
-  document.getElementById("editFaculty").value = profile.faculty;
-  document.getElementById("editGithub").value = profile.github;
-  document.getElementById("editLinkedin").value = profile.linkedin;
-  document.getElementById("editEmail").value = profile.email;
 }
 
 /* -----------------------------
